@@ -92,6 +92,7 @@ from transactions t
 where 1=1
 and t.product = "ProdA"
 and status= 'SUCCESS')
+order by tpa."timestamp"
 ```
 
 1d. Provide an exception report listing any transactions in FFI’s DB that are
@@ -116,6 +117,7 @@ where 1=1
 and product = 'ProdA'
 and t.amount != tpa.amount
 and date(completed_at) between '2021/01/01' and '2022/01/01'
+order by completed_at
 ```
 
 ### 2. Finance Reconciliation Reports for Product B, within a given date range:
@@ -201,6 +203,7 @@ from transactions t
 where 1=1
 and t.product = "ProdB"
 and status= 'SUCCESS')
+order by tpb."timestamp"
 ```
 
 2d. Provide an exception report listing any transactions in FFI’s DB that are
@@ -225,6 +228,7 @@ where 1=1
 and product = 'ProdB'
 and t.amount != tpb.amount
 and date(completed_at) between '2021/01/01' and '2022/01/01'
+order by completed_at
 ```
 
 ### 3. Management Summary Report
