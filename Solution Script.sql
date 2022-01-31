@@ -81,6 +81,7 @@ from transactions t
 where 1=1
 and t.product = "ProdA"
 and status= 'SUCCESS')
+order by tpa."timestamp"
 
 -- 1d. Provide an exception report listing any transactions in FFI’s DB 
 -- that are present in the TPA recon reports with a different amount, within the given date range. 
@@ -101,6 +102,7 @@ where 1=1
 and product = 'ProdA'
 and t.amount != tpa.amount
 and date(completed_at) between '2021/01/01' and '2022/01/01'
+order by completed_at
 
 -- 2.Finance Reconciliation Reports for Product B, within a given date range:
 -- As above, but for ProdB transactions and comparing against the recon report data from TPB.
@@ -193,6 +195,7 @@ from transactions t
 where 1=1
 and t.product = "ProdB"
 and status= 'SUCCESS')
+order by tpb."timestamp"
 
 -- 2d. Provide an exception report listing any transactions in FFI’s DB 
 -- that are present in the TPB recon reports with a different amount, within the given date range. 
@@ -213,6 +216,7 @@ where 1=1
 and product = 'ProdB'
 and t.amount != tpb.amount
 and date(completed_at) between '2021/01/01' and '2022/01/01'
+order by completed_at
 
 -- 3. Management Summary Report
 -- Provide a report for the most recent 30 days in the database, giving daily
@@ -220,6 +224,7 @@ and date(completed_at) between '2021/01/01' and '2022/01/01'
 
 select 
 date(completed_at) as 'Date', 
+--round(sum(t_ProdA.Total_ProdA_Amount), 2) as 'Test1',
 round(cast(sum(t_ProdA.Total_ProdA_Amount) as decimal(16,2)), 2) as 'Gross Transaction Value for ProdA',
 round(cast(sum(t_ProdB.Total_ProdB_Amount) as decimal(16,2)), 2) as 'Gross Transaction Value for ProdB',
 round(cast(sum(amount) as decimal(16,2)), 2) as 'Total Gross Transaction Value'
