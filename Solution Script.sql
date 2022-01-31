@@ -224,7 +224,6 @@ order by completed_at
 
 select 
 date(completed_at) as 'Date', 
---round(sum(t_ProdA.Total_ProdA_Amount), 2) as 'Test1',
 round(cast(sum(t_ProdA.Total_ProdA_Amount) as decimal(16,2)), 2) as 'Gross Transaction Value for ProdA',
 round(cast(sum(t_ProdB.Total_ProdB_Amount) as decimal(16,2)), 2) as 'Gross Transaction Value for ProdB',
 round(cast(sum(amount) as decimal(16,2)), 2) as 'Total Gross Transaction Value'
