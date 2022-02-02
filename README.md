@@ -4,6 +4,8 @@
 This repo contains:
 1. Nine (9) .CSV reports to each question (1a.csv, 1b.csv, 1c.csv, 1d.csv, 2a.csv, 2b.csv, 2c.csv, 2d.csv, 3a.csv).
 2. The SQL queries to generate each .csv report (Solution Script.sql)
+3. PBIX file of the dashboard (Management dashboard v2.pbix)
+Note: This requires a connection to the sqlite db in order to work.
 
 ### 1. Finance Reconciliation Reports for Product A, within a given date range:
 1a. Provide a summary report for successful ProdA transactions with one line
