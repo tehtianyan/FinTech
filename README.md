@@ -1,5 +1,4 @@
-# BigPay Takehome Assignmnet
-## Private repository for the BigPay interview assignment.
+# FinTech project
 
 This repo contains:
 1. Nine (9) .CSV reports to each question (1a.csv, 1b.csv, 1c.csv, 1d.csv, 2a.csv, 2b.csv, 2c.csv, 2d.csv, 3a.csv).
